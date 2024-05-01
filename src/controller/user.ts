@@ -9,18 +9,22 @@ const showWelcome = (req: Request, res: Response) => {
     return res.json({
         availableRoutes: [
             {
+                type: 'POST',
                 path: '/api/create',
                 description: 'for create a new User'
             },
             {
+                type: 'POST',
                 path: '/api/login',
                 description: 'for login a User'
             },
             {
+                type: 'GET',
                 path: '/api/user/:id',
                 description: 'for getting a particular user'
             },
             {
+                type: 'GET',
                 path: '/api/logout',
                 description: 'for logout a user'
             }
@@ -122,4 +126,4 @@ const getUser = async (req: Request, res: Response) => {
 }
 
 
-export { registerUser, loginUser, getUser, logoutUser,showWelcome };
+export { registerUser, loginUser, getUser, logoutUser, showWelcome };

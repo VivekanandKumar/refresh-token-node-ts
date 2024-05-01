@@ -4,7 +4,6 @@ import { authUser } from '../middlewares/authUser';
 
 const router = express.Router();
 
-router.get('/', showWelcome);
 router.get('/user/:id', authUser, getUser)
 router.get('/logout', authUser, logoutUser)
 router.post('/create', registerUser)
