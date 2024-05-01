@@ -4,6 +4,33 @@ import { config } from '../config/config'
 import { compare, hash } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
 
+
+const showWelcome = (req: Request, res: Response) => {
+    return res.json({
+        availableRoutes: [
+            {
+                path: '/api/create',
+                description: 'for create a new User'
+            },
+            {
+                path: '/api/login',
+                description: 'for login a User'
+            },
+            {
+                path: '/api/user/:id',
+                description: 'for getting a particular user'
+            },
+            {
+                path: '/api/logout',
+                description: 'for logout a user'
+            }
+        ]
+    })
+}
+
+
+
+
 const registerUser = async (req: Request, res: Response) => {
     try {
         const { name, email, password } = req.body;
@@ -95,4 +122,4 @@ const getUser = async (req: Request, res: Response) => {
 }
 
 
-export { registerUser, loginUser, getUser, logoutUser };
+export { registerUser, loginUser, getUser, logoutUser,showWelcome };
